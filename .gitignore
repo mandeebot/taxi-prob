@@ -7,7 +7,6 @@ mypy_cache/
 dmypy.json
 .pyre
 
-
 #python artifcats
 __pycache__/
 .egg_info
@@ -30,7 +29,6 @@ venv/
 
 #pc os
 .DS_Store
-
 
 #big files
 *.csv*
