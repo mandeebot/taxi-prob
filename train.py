@@ -10,6 +10,7 @@ from sklearn.metrics import mean_squared_error
 
 from sklearn.feature_extraction import DictVectorizer as dv
 
+from prefect import flow,task
 
 #setting up tracking uri and experiment
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
@@ -19,8 +20,8 @@ mlflow.set_experiment("Random_regressor")
 mlflow.autolog()
 
 
-
 # Defining a function to load pickle files
+@task
 def load_pickle(filename: str):
     with open(filename, "rb") as f_in:
         return joblib.load(f_in)
@@ -34,7 +35,7 @@ def load_pickle(filename: str):
 )
 
 
-
+@flow
 def run_train(data_path: str):
     #creating mlflow run
     with mlflow.start_run():

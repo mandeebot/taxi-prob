@@ -40,27 +40,15 @@ def preprocess(df: pd.DataFrame, dv: DictVectorizer, fit_dv: bool = False):
 
 # Define a command-line interface (CLI)
 @click.command()
-@click.option(
-    "--raw_data_path",
-    help="/Users/mandeebot/Desktop/MLOPS/week2/data_files"
-)
-@click.option(
-    "--dest_path",
-    help="/Users/mandeebot/Desktop/MLOPS/week2/new_files"
-)
+@click.option("--raw_data_path",help="/Users/mandeebot/Desktop/MLOPS/week2/data_files")
+@click.option("--dest_path",help="/Users/mandeebot/Desktop/MLOPS/week2/new_files")
 
 #reading all data
 def run_data_prep(raw_data_path: str, dest_path: str, dataset: str = "green"):
     # Load the parquet files
-    df_train = read_dataframe(
-        os.path.join(raw_data_path, f"{dataset}_tripdata_2022-01.parquet")
-    )
-    df_val = read_dataframe(
-        os.path.join(raw_data_path, f"{dataset}_tripdata_2022-02.parquet")
-    )
-    df_test = read_dataframe(
-        os.path.join(raw_data_path, f"{dataset}_tripdata_2022-03.parquet")
-    )
+    df_train = read_dataframe(os.path.join(raw_data_path, f"{dataset}_tripdata_2022-01.parquet"))
+    df_val = read_dataframe(os.path.join(raw_data_path, f"{dataset}_tripdata_2022-02.parquet"))
+    df_test = read_dataframe(os.path.join(raw_data_path, f"{dataset}_tripdata_2022-03.parquet"))
 
     # Extract the target
     target = 'tip_amount'

@@ -6,3 +6,7 @@ hyperopt
 xgboost
 fastparquet
 boto3
+prefect-aws==0.3.1
+prefect==2.10.8
+black==23.3.0
+orjson
