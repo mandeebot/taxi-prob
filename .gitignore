@@ -1,0 +1,48 @@
+#prefect artifacts
+.prefectignore
+
+#type checking artifacts
+mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre
+
+
+#python artifcats
+__pycache__/
+.egg_info
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+#ipython artifcats
+profile_default/
+ipython_config.py
+*.ipynb_checkpoints/*
+
+#environment
+.python-version
+.env
+.venv
+env/
+venv/
+
+#pc os
+.DS_Store
+
+
+#big files
+*.csv*
+*.json*
+
+#editors
+*vscode/*
+*idea*
+*tmp/*
+*.deployment.yaml*
+
+# mlflow
+*mlruns*
+*models*
+*mlflow.db*
