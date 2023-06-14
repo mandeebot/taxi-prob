@@ -6,8 +6,8 @@ from prefect import flow
 #creating a credentials bucket block
 def create_aws_cred_block():
     my_aws_cred_obj = AwsCredentials(
-        aws_access_key_id = "AKIA22BLTZN7TR4HNI24",
-        aws_secret_access_key = "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"
+        aws_access_key_id = "aaafffss",
+        aws_secret_access_key = "4353564"
     )
     my_aws_cred_obj.save(name="ml-aws-creds", overwrite=True)
 
