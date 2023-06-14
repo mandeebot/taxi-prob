@@ -130,9 +130,9 @@ def train_best_model(
 
 
 @flow
-def main_flow(
-    train_path: str = "/Users/mandeebot/Desktop/MLOPS/week2/old_data/green_tripdata_2022-01.parquet",
-    val_path: str = "/Users/mandeebot/Desktop/MLOPS/week2/old_data/green_tripdata_2022-02.parquet",
+def main_flow_s3(
+    train_path: str = "/Users/mandeebot/Desktop/MLOPS/week2/aws_data/green_tripdata_2022-01.parquet",
+    val_path: str = "/Users/mandeebot/Desktop/MLOPS/week2/aws_data/green_tripdata_2022-02.parquet",
 ) -> None:
     """The main training pipeline"""
 
@@ -140,7 +140,10 @@ def main_flow(
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
 
-    #loading data from locat directory
+    # Loading data from s3 storage
+    s3_bucket_block = S3Bucket.load("s3-bucket-2")
+    s3_bucket_block.download_folder_to_path(from_folder="data_files", to_folder="aws_data")
+
     df_train = read_data(train_path)
     df_val = read_data(val_path)
 
@@ -152,4 +155,4 @@ def main_flow(
 
 
 if __name__ == "__main__":
-    main_flow()
+    main_flow_s3()

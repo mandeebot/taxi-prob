@@ -1,3 +1,4 @@
 {
-  "main-flow": "ochest.py:main_flow"
+  "main-flow": "ochest.py:main_flow",
+  "main-flow-s3": "ochest-s3.py:main_flow_s3"
 }
